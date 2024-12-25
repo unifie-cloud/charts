@@ -1,0 +1,13 @@
+## @section Global parameters
+## Please, note that this will override the parameters, including dependencies, configured to use the global value
+##
+# global:
+#   postgresql:
+#     auth:
+#       username: ""
+#       password: ""
+#       database: ""
+
+evershop:
+  DB_PORT: "5432"
+  DB_HOST: "unifie-postgresql"

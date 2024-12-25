@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: "{{ .Release.Namespace }}"
+  name: evershop
+  labels:
+    app-type: evershop
+spec:
+  selector:
+    matchLabels:
+      app-type: evershop
+  template:
+    metadata:
+      labels:
+        app-type: evershop
+    spec:
+      containers:
+        - name: back
+          image: "evershop/evershop:latest"
+          resources:
+            requests:
+              memory: 100Mi
+              cpu: 50m
+          env:
+            - name: DB_NAME
+              value: "{{ .Values.global.postgresql.auth.database }}"
+            - name: DB_USER
+              value: "{{ .Values.global.postgresql.auth.username }}"
+            - name: DB_PASSWORD
+              value: "{{ .Values.global.postgresql.auth.password }}"
+            - name: DB_PORT
+              value: "{{ .Values.evershop.DB_PORT }}"
+            - name: DB_HOST
+              value: "{{ .Values.evershop.DB_HOST }}"

@@ -1,2 +1,3 @@
-# evershop
-evershop template
+# EverShop
+
+deployment template
