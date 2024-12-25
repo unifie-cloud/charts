@@ -1,0 +1,15 @@
+showVerionsTab: false
+showEnvVarsTab: true
+allowAutoApplyLimits: false
+name: Evershop
+title: Evershop
+logo: null
+tags:
+  - ecommerce
+  - shop
+  - postgresql
+  - react
+description: Evershop
+oneDeploymentPerCluster: false
+notAllowRemoveNamespace: false
+autoAddEnvVarsToDeployments: true

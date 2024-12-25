@@ -2,3 +2,19 @@ name: evershop
 uiType: helm
 helmRepositoryName: evershop
 helmRepositoryChartName: evershop
+rules: []
+routes:
+  - host: '{{ .deployment.domain }}'
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: evershop
+              port:
+                number: 80
+monitoring:
+  - host: '{{ .deployment.domain }}'
+    path: /
+    timeout: 30000
