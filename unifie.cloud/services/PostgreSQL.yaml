@@ -1,0 +1,3432 @@
+name: PostgreSQL
+uiType: helm
+helmRepositoryName: bitnami
+helmRepositoryURL: https://charts.bitnami.com/bitnami
+helmRepositoryVersion: 16.3.1
+helmRepositoryChartName: postgresql
+rules:
+  - varName: architecture
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: standalone
+    refToSpecVar: ''
+    UIVarTitle: architecture
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: audit
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: >-
+      {"logHostname":false,"logConnections":false,"logDisconnections":false,"pgAuditLog":"","pgAuditLogCatalog":"off","clientMinMessages":"error","logLinePrefix":"","logTimezone":""}
+    refToSpecVar: ''
+    UIVarTitle: audit
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: audit.clientMinMessages
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: error
+    refToSpecVar: ''
+    UIVarTitle: audit.clientMinMessages
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: audit.logConnections
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: audit.logConnections
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: audit.logDisconnections
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: audit.logDisconnections
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: audit.logHostname
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: audit.logHostname
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: audit.logLinePrefix
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: audit.logLinePrefix
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: audit.logTimezone
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: audit.logTimezone
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: audit.pgAuditLog
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: audit.pgAuditLog
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: audit.pgAuditLogCatalog
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'off'
+    refToSpecVar: ''
+    UIVarTitle: audit.pgAuditLogCatalog
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: auth
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: >-
+      {"enablePostgresUser":true,"postgresPassword":"","username":"","password":"","database":"","replicationUsername":"repl_user","replicationPassword":"","existingSecret":"","secretKeys":{"adminPasswordKey":"postgres-password","userPasswordKey":"password","replicationPasswordKey":"replication-password"},"usePasswordFiles":false}
+    refToSpecVar: ''
+    UIVarTitle: auth
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: auth.database
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: database
+    refToSpecVar: ''
+    UIVarTitle: Database name
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: auth.enablePostgresUser
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: auth.enablePostgresUser
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: auth.existingSecret
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: auth.existingSecret
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: auth.password
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: my-password
+    refToSpecVar: ''
+    UIVarTitle: Database password
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: password
+  - varName: auth.postgresPassword
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: auth.postgresPassword
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: auth.replicationPassword
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: auth.replicationPassword
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: auth.replicationUsername
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: repl_user
+    refToSpecVar: ''
+    UIVarTitle: auth.replicationUsername
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: auth.secretKeys.adminPasswordKey
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: postgres-password
+    refToSpecVar: ''
+    UIVarTitle: auth.secretKeys.adminPasswordKey
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: auth.secretKeys.replicationPasswordKey
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: replication-password
+    refToSpecVar: ''
+    UIVarTitle: auth.secretKeys.replicationPasswordKey
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: auth.secretKeys.userPasswordKey
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: password
+    refToSpecVar: ''
+    UIVarTitle: auth.secretKeys.userPasswordKey
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: auth.usePasswordFiles
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: auth.usePasswordFiles
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: auth.username
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: user
+    refToSpecVar: ''
+    UIVarTitle: Username
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: backup
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: >-
+      {"enabled":false,"cronjob":{"schedule":"@daily","timeZone":"","concurrencyPolicy":"Allow","failedJobsHistoryLimit":1,"successfulJobsHistoryLimit":3,"startingDeadlineSeconds":"","ttlSecondsAfterFinished":"","restartPolicy":"OnFailure","podSecurityContext":{"enabled":true,"fsGroupChangePolicy":"Always","sysctls":[],"supplementalGroups":[],"fsGroup":1001},"containerSecurityContext":{"enabled":true,"seLinuxOptions":{},"runAsUser":1001,"runAsGroup":1001,"runAsNonRoot":true,"privileged":false,"readOnlyRootFilesystem":true,"allowPrivilegeEscalation":false,"capabilities":{"drop":["ALL"]},"seccompProfile":{"type":"RuntimeDefault"}},"command":["/bin/sh","-c","pg_dumpall
+      --clean --if-exists --load-via-partition-root --quote-all-identifiers
+      --no-password --file=${PGDUMP_DIR}/pg_dumpall-$(date
+      '+%Y-%m-%d-%H-%M').pgdump"],"labels":{},"annotations":{},"nodeSelector":{},"tolerations":[],"resourcesPreset":"nano","resources":{},"networkPolicy":{"enabled":true},"storage":{"enabled":true,"existingClaim":"","resourcePolicy":"","storageClass":"","accessModes":["ReadWriteOnce"],"size":"8Gi","annotations":{},"mountPath":"/backup/pgdump","subPath":"","volumeClaimTemplates":{"selector":{}}},"extraVolumeMounts":[],"extraVolumes":[]}}
+    refToSpecVar: ''
+    UIVarTitle: backup
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: backup.cronjob.command.0
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: /bin/sh
+    refToSpecVar: ''
+    UIVarTitle: backup.cronjob.command.0
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: backup.cronjob.command.1
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '-c'
+    refToSpecVar: ''
+    UIVarTitle: backup.cronjob.command.1
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: backup.cronjob.command.2
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: >-
+      pg_dumpall --clean --if-exists --load-via-partition-root
+      --quote-all-identifiers --no-password
+      --file=${PGDUMP_DIR}/pg_dumpall-$(date '+%Y-%m-%d-%H-%M').pgdump
+    refToSpecVar: ''
+    UIVarTitle: backup.cronjob.command.2
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: backup.cronjob.concurrencyPolicy
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: Allow
+    refToSpecVar: ''
+    UIVarTitle: backup.cronjob.concurrencyPolicy
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: backup.cronjob.containerSecurityContext.allowPrivilegeEscalation
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: backup.cronjob.containerSecurityContext.allowPrivilegeEscalation
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: backup.cronjob.containerSecurityContext.capabilities.drop.0
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ALL
+    refToSpecVar: ''
+    UIVarTitle: backup.cronjob.containerSecurityContext.capabilities.drop.0
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: backup.cronjob.containerSecurityContext.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: backup.cronjob.containerSecurityContext.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: backup.cronjob.containerSecurityContext.privileged
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: backup.cronjob.containerSecurityContext.privileged
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: backup.cronjob.containerSecurityContext.readOnlyRootFilesystem
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: backup.cronjob.containerSecurityContext.readOnlyRootFilesystem
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: backup.cronjob.containerSecurityContext.runAsGroup
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1001'
+    refToSpecVar: ''
+    UIVarTitle: backup.cronjob.containerSecurityContext.runAsGroup
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: backup.cronjob.containerSecurityContext.runAsNonRoot
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: backup.cronjob.containerSecurityContext.runAsNonRoot
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: backup.cronjob.containerSecurityContext.runAsUser
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1001'
+    refToSpecVar: ''
+    UIVarTitle: backup.cronjob.containerSecurityContext.runAsUser
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: backup.cronjob.containerSecurityContext.seccompProfile.type
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: RuntimeDefault
+    refToSpecVar: ''
+    UIVarTitle: backup.cronjob.containerSecurityContext.seccompProfile.type
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: backup.cronjob.failedJobsHistoryLimit
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1'
+    refToSpecVar: ''
+    UIVarTitle: backup.cronjob.failedJobsHistoryLimit
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: backup.cronjob.networkPolicy.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: backup.cronjob.networkPolicy.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: backup.cronjob.podSecurityContext.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: backup.cronjob.podSecurityContext.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: backup.cronjob.podSecurityContext.fsGroup
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1001'
+    refToSpecVar: ''
+    UIVarTitle: backup.cronjob.podSecurityContext.fsGroup
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: backup.cronjob.podSecurityContext.fsGroupChangePolicy
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: Always
+    refToSpecVar: ''
+    UIVarTitle: backup.cronjob.podSecurityContext.fsGroupChangePolicy
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: backup.cronjob.resourcesPreset
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: nano
+    refToSpecVar: ''
+    UIVarTitle: backup.cronjob.resourcesPreset
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: backup.cronjob.restartPolicy
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: OnFailure
+    refToSpecVar: ''
+    UIVarTitle: backup.cronjob.restartPolicy
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: backup.cronjob.schedule
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '@daily'
+    refToSpecVar: ''
+    UIVarTitle: backup.cronjob.schedule
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: backup.cronjob.startingDeadlineSeconds
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: backup.cronjob.startingDeadlineSeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: backup.cronjob.storage.accessModes.0
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ReadWriteOnce
+    refToSpecVar: ''
+    UIVarTitle: backup.cronjob.storage.accessModes.0
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: backup.cronjob.storage.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: backup.cronjob.storage.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: backup.cronjob.storage.existingClaim
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: backup.cronjob.storage.existingClaim
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: backup.cronjob.storage.mountPath
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: /backup/pgdump
+    refToSpecVar: ''
+    UIVarTitle: backup.cronjob.storage.mountPath
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: backup.cronjob.storage.resourcePolicy
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: backup.cronjob.storage.resourcePolicy
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: backup.cronjob.storage.size
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 8Gi
+    refToSpecVar: ''
+    UIVarTitle: backup.cronjob.storage.size
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: backup.cronjob.storage.storageClass
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: backup.cronjob.storage.storageClass
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: backup.cronjob.storage.subPath
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: backup.cronjob.storage.subPath
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: backup.cronjob.successfulJobsHistoryLimit
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '3'
+    refToSpecVar: ''
+    UIVarTitle: backup.cronjob.successfulJobsHistoryLimit
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: backup.cronjob.timeZone
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: backup.cronjob.timeZone
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: backup.cronjob.ttlSecondsAfterFinished
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: backup.cronjob.ttlSecondsAfterFinished
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: backup.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: backup.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: clusterDomain
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: cluster.local
+    refToSpecVar: ''
+    UIVarTitle: clusterDomain
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: commonAnnotations
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '{}'
+    refToSpecVar: ''
+    UIVarTitle: commonAnnotations
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: commonLabels
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '{}'
+    refToSpecVar: ''
+    UIVarTitle: commonLabels
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: containerPorts
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '{"postgresql":5432}'
+    refToSpecVar: ''
+    UIVarTitle: containerPorts
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: containerPorts.postgresql
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '5432'
+    refToSpecVar: ''
+    UIVarTitle: containerPorts.postgresql
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: diagnosticMode
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '{"enabled":false,"command":["sleep"],"args":["infinity"]}'
+    refToSpecVar: ''
+    UIVarTitle: diagnosticMode
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: diagnosticMode.args.0
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: infinity
+    refToSpecVar: ''
+    UIVarTitle: diagnosticMode.args.0
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: diagnosticMode.command.0
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: sleep
+    refToSpecVar: ''
+    UIVarTitle: diagnosticMode.command.0
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: diagnosticMode.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: diagnosticMode.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: extraDeploy
+    varValueType: array
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '[]'
+    refToSpecVar: ''
+    UIVarTitle: extraDeploy
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: fullnameOverride
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: fullnameOverride
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: global
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: >-
+      {"imageRegistry":"","imagePullSecrets":[],"defaultStorageClass":"","storageClass":"","security":{"allowInsecureImages":false},"postgresql":{"auth":{"postgresPassword":"","username":"","password":"","database":"","existingSecret":"","secretKeys":{"adminPasswordKey":"","userPasswordKey":"","replicationPasswordKey":""}},"service":{"ports":{"postgresql":""}}},"compatibility":{"openshift":{"adaptSecurityContext":"auto"}}}
+    refToSpecVar: ''
+    UIVarTitle: global
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: global.compatibility.openshift.adaptSecurityContext
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: auto
+    refToSpecVar: ''
+    UIVarTitle: global.compatibility.openshift.adaptSecurityContext
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: global.defaultStorageClass
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: global.defaultStorageClass
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: global.imageRegistry
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: global.imageRegistry
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: global.postgresql.auth.database
+    varValueType: string
+    varValueSrcType: src_deployment_ui
+    hardcodedDefaultValue: default
+    refToSpecVar: ''
+    UIVarTitle: Database name
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: global.postgresql.auth.existingSecret
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: global.postgresql.auth.existingSecret
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: global.postgresql.auth.password
+    varValueType: string
+    varValueSrcType: src_deployment_ui
+    hardcodedDefaultValue: secret-password
+    refToSpecVar: ''
+    UIVarTitle: Database password
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: password
+  - varName: global.postgresql.auth.postgresPassword
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: global.postgresql.auth.postgresPassword
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: global.postgresql.auth.secretKeys.adminPasswordKey
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: global.postgresql.auth.secretKeys.adminPasswordKey
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: global.postgresql.auth.secretKeys.replicationPasswordKey
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: global.postgresql.auth.secretKeys.replicationPasswordKey
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: global.postgresql.auth.secretKeys.userPasswordKey
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: global.postgresql.auth.secretKeys.userPasswordKey
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: global.postgresql.auth.username
+    varValueType: string
+    varValueSrcType: src_deployment_ui
+    hardcodedDefaultValue: user
+    refToSpecVar: ''
+    UIVarTitle: User name
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: global.postgresql.service.ports.postgresql
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: global.postgresql.service.ports.postgresql
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: global.security.allowInsecureImages
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: global.security.allowInsecureImages
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: global.storageClass
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: global.storageClass
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: image
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: >-
+      {"registry":"docker.io","repository":"bitnami/postgresql","tag":"17.2.0-debian-12-r2","digest":"","pullPolicy":"IfNotPresent","pullSecrets":[],"debug":false}
+    refToSpecVar: ''
+    UIVarTitle: image
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: image.debug
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: image.debug
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: image.digest
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: image.digest
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: image.pullPolicy
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: IfNotPresent
+    refToSpecVar: ''
+    UIVarTitle: image.pullPolicy
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: image.registry
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: docker.io
+    refToSpecVar: ''
+    UIVarTitle: image.registry
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: image.repository
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: bitnami/postgresql
+    refToSpecVar: ''
+    UIVarTitle: image.repository
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: image.tag
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 17.2.0-debian-12-r2
+    refToSpecVar: ''
+    UIVarTitle: image.tag
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: kubeVersion
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: kubeVersion
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ldap
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: >-
+      {"enabled":false,"server":"","port":"","prefix":"","suffix":"","basedn":"","binddn":"","bindpw":"","searchAttribute":"","searchFilter":"","scheme":"","tls":{"enabled":false},"uri":""}
+    refToSpecVar: ''
+    UIVarTitle: ldap
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ldap.basedn
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: ldap.basedn
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ldap.binddn
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: ldap.binddn
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ldap.bindpw
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: ldap.bindpw
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ldap.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: ldap.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ldap.port
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: ldap.port
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ldap.prefix
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: ldap.prefix
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ldap.scheme
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: ldap.scheme
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ldap.searchAttribute
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: ldap.searchAttribute
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ldap.searchFilter
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: ldap.searchFilter
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ldap.server
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: ldap.server
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ldap.suffix
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: ldap.suffix
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ldap.tls.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: ldap.tls.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ldap.uri
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: ldap.uri
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: >-
+      {"enabled":false,"image":{"registry":"docker.io","repository":"bitnami/postgres-exporter","tag":"0.16.0-debian-12-r1","digest":"","pullPolicy":"IfNotPresent","pullSecrets":[]},"collectors":{},"customMetrics":{},"extraEnvVars":[],"containerSecurityContext":{"enabled":true,"seLinuxOptions":{},"runAsUser":1001,"runAsGroup":1001,"runAsNonRoot":true,"privileged":false,"readOnlyRootFilesystem":true,"allowPrivilegeEscalation":false,"capabilities":{"drop":["ALL"]},"seccompProfile":{"type":"RuntimeDefault"}},"livenessProbe":{"enabled":true,"initialDelaySeconds":5,"periodSeconds":10,"timeoutSeconds":5,"failureThreshold":6,"successThreshold":1},"readinessProbe":{"enabled":true,"initialDelaySeconds":5,"periodSeconds":10,"timeoutSeconds":5,"failureThreshold":6,"successThreshold":1},"startupProbe":{"enabled":false,"initialDelaySeconds":10,"periodSeconds":10,"timeoutSeconds":1,"failureThreshold":15,"successThreshold":1},"customLivenessProbe":{},"customReadinessProbe":{},"customStartupProbe":{},"containerPorts":{"metrics":9187},"resourcesPreset":"nano","resources":{},"service":{"ports":{"metrics":9187},"clusterIP":"","sessionAffinity":"None","annotations":{"prometheus.io/scrape":"true","prometheus.io/port":"{{
+      .Values.metrics.service.ports.metrics
+      }}"}},"serviceMonitor":{"enabled":false,"namespace":"","interval":"","scrapeTimeout":"","labels":{},"selector":{},"relabelings":[],"metricRelabelings":[],"honorLabels":false,"jobLabel":""},"prometheusRule":{"enabled":false,"namespace":"","labels":{},"rules":[]}}
+    refToSpecVar: ''
+    UIVarTitle: metrics
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.containerPorts.metrics
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '9187'
+    refToSpecVar: ''
+    UIVarTitle: metrics.containerPorts.metrics
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.containerSecurityContext.allowPrivilegeEscalation
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: metrics.containerSecurityContext.allowPrivilegeEscalation
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.containerSecurityContext.capabilities.drop.0
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ALL
+    refToSpecVar: ''
+    UIVarTitle: metrics.containerSecurityContext.capabilities.drop.0
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.containerSecurityContext.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: metrics.containerSecurityContext.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.containerSecurityContext.privileged
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: metrics.containerSecurityContext.privileged
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.containerSecurityContext.readOnlyRootFilesystem
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: metrics.containerSecurityContext.readOnlyRootFilesystem
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.containerSecurityContext.runAsGroup
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1001'
+    refToSpecVar: ''
+    UIVarTitle: metrics.containerSecurityContext.runAsGroup
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.containerSecurityContext.runAsNonRoot
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: metrics.containerSecurityContext.runAsNonRoot
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.containerSecurityContext.runAsUser
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1001'
+    refToSpecVar: ''
+    UIVarTitle: metrics.containerSecurityContext.runAsUser
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.containerSecurityContext.seccompProfile.type
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: RuntimeDefault
+    refToSpecVar: ''
+    UIVarTitle: metrics.containerSecurityContext.seccompProfile.type
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: metrics.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.image.digest
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: metrics.image.digest
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.image.pullPolicy
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: IfNotPresent
+    refToSpecVar: ''
+    UIVarTitle: metrics.image.pullPolicy
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.image.registry
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: docker.io
+    refToSpecVar: ''
+    UIVarTitle: metrics.image.registry
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.image.repository
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: bitnami/postgres-exporter
+    refToSpecVar: ''
+    UIVarTitle: metrics.image.repository
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.image.tag
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 0.16.0-debian-12-r1
+    refToSpecVar: ''
+    UIVarTitle: metrics.image.tag
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.livenessProbe.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: metrics.livenessProbe.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.livenessProbe.failureThreshold
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '6'
+    refToSpecVar: ''
+    UIVarTitle: metrics.livenessProbe.failureThreshold
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.livenessProbe.initialDelaySeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '5'
+    refToSpecVar: ''
+    UIVarTitle: metrics.livenessProbe.initialDelaySeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.livenessProbe.periodSeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '10'
+    refToSpecVar: ''
+    UIVarTitle: metrics.livenessProbe.periodSeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.livenessProbe.successThreshold
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1'
+    refToSpecVar: ''
+    UIVarTitle: metrics.livenessProbe.successThreshold
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.livenessProbe.timeoutSeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '5'
+    refToSpecVar: ''
+    UIVarTitle: metrics.livenessProbe.timeoutSeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.prometheusRule.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: metrics.prometheusRule.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.prometheusRule.namespace
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: metrics.prometheusRule.namespace
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.readinessProbe.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: metrics.readinessProbe.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.readinessProbe.failureThreshold
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '6'
+    refToSpecVar: ''
+    UIVarTitle: metrics.readinessProbe.failureThreshold
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.readinessProbe.initialDelaySeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '5'
+    refToSpecVar: ''
+    UIVarTitle: metrics.readinessProbe.initialDelaySeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.readinessProbe.periodSeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '10'
+    refToSpecVar: ''
+    UIVarTitle: metrics.readinessProbe.periodSeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.readinessProbe.successThreshold
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1'
+    refToSpecVar: ''
+    UIVarTitle: metrics.readinessProbe.successThreshold
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.readinessProbe.timeoutSeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '5'
+    refToSpecVar: ''
+    UIVarTitle: metrics.readinessProbe.timeoutSeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.resourcesPreset
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: nano
+    refToSpecVar: ''
+    UIVarTitle: metrics.resourcesPreset
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.service.clusterIP
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: metrics.service.clusterIP
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.service.ports.metrics
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '9187'
+    refToSpecVar: ''
+    UIVarTitle: metrics.service.ports.metrics
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.service.sessionAffinity
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: None
+    refToSpecVar: ''
+    UIVarTitle: metrics.service.sessionAffinity
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.serviceMonitor.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: metrics.serviceMonitor.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.serviceMonitor.honorLabels
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: metrics.serviceMonitor.honorLabels
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.serviceMonitor.interval
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: metrics.serviceMonitor.interval
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.serviceMonitor.jobLabel
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: metrics.serviceMonitor.jobLabel
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.serviceMonitor.namespace
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: metrics.serviceMonitor.namespace
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.serviceMonitor.scrapeTimeout
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: metrics.serviceMonitor.scrapeTimeout
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.startupProbe.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: metrics.startupProbe.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.startupProbe.failureThreshold
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '15'
+    refToSpecVar: ''
+    UIVarTitle: metrics.startupProbe.failureThreshold
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.startupProbe.initialDelaySeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '10'
+    refToSpecVar: ''
+    UIVarTitle: metrics.startupProbe.initialDelaySeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.startupProbe.periodSeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '10'
+    refToSpecVar: ''
+    UIVarTitle: metrics.startupProbe.periodSeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.startupProbe.successThreshold
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1'
+    refToSpecVar: ''
+    UIVarTitle: metrics.startupProbe.successThreshold
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: metrics.startupProbe.timeoutSeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1'
+    refToSpecVar: ''
+    UIVarTitle: metrics.startupProbe.timeoutSeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: nameOverride
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: nameOverride
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: namespaceOverride
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: namespaceOverride
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: passwordUpdateJob
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: >-
+      {"enabled":false,"backoffLimit":10,"command":[],"args":[],"extraCommands":"","previousPasswords":{"postgresPassword":"","password":"","replicationPassword":"","existingSecret":""},"containerSecurityContext":{"enabled":true,"seLinuxOptions":{},"runAsUser":1001,"runAsGroup":1001,"runAsNonRoot":true,"privileged":false,"readOnlyRootFilesystem":true,"allowPrivilegeEscalation":false,"capabilities":{"drop":["ALL"]},"seccompProfile":{"type":"RuntimeDefault"}},"podSecurityContext":{"enabled":true,"fsGroupChangePolicy":"Always","sysctls":[],"supplementalGroups":[],"fsGroup":1001},"extraEnvVars":[],"extraEnvVarsCM":"","extraEnvVarsSecret":"","extraVolumes":[],"extraVolumeMounts":[],"initContainers":[],"resourcesPreset":"micro","resources":{},"customLivenessProbe":{},"customReadinessProbe":{},"customStartupProbe":{},"automountServiceAccountToken":false,"hostAliases":[],"annotations":{},"podLabels":{},"podAnnotations":{}}
+    refToSpecVar: ''
+    UIVarTitle: passwordUpdateJob
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: passwordUpdateJob.automountServiceAccountToken
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: passwordUpdateJob.automountServiceAccountToken
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: passwordUpdateJob.backoffLimit
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '10'
+    refToSpecVar: ''
+    UIVarTitle: passwordUpdateJob.backoffLimit
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: passwordUpdateJob.containerSecurityContext.allowPrivilegeEscalation
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: passwordUpdateJob.containerSecurityContext.allowPrivilegeEscalation
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: passwordUpdateJob.containerSecurityContext.capabilities.drop.0
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ALL
+    refToSpecVar: ''
+    UIVarTitle: passwordUpdateJob.containerSecurityContext.capabilities.drop.0
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: passwordUpdateJob.containerSecurityContext.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: passwordUpdateJob.containerSecurityContext.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: passwordUpdateJob.containerSecurityContext.privileged
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: passwordUpdateJob.containerSecurityContext.privileged
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: passwordUpdateJob.containerSecurityContext.readOnlyRootFilesystem
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: passwordUpdateJob.containerSecurityContext.readOnlyRootFilesystem
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: passwordUpdateJob.containerSecurityContext.runAsGroup
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1001'
+    refToSpecVar: ''
+    UIVarTitle: passwordUpdateJob.containerSecurityContext.runAsGroup
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: passwordUpdateJob.containerSecurityContext.runAsNonRoot
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: passwordUpdateJob.containerSecurityContext.runAsNonRoot
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: passwordUpdateJob.containerSecurityContext.runAsUser
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1001'
+    refToSpecVar: ''
+    UIVarTitle: passwordUpdateJob.containerSecurityContext.runAsUser
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: passwordUpdateJob.containerSecurityContext.seccompProfile.type
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: RuntimeDefault
+    refToSpecVar: ''
+    UIVarTitle: passwordUpdateJob.containerSecurityContext.seccompProfile.type
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: passwordUpdateJob.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: passwordUpdateJob.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: passwordUpdateJob.extraCommands
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: passwordUpdateJob.extraCommands
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: passwordUpdateJob.extraEnvVarsCM
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: passwordUpdateJob.extraEnvVarsCM
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: passwordUpdateJob.extraEnvVarsSecret
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: passwordUpdateJob.extraEnvVarsSecret
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: passwordUpdateJob.podSecurityContext.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: passwordUpdateJob.podSecurityContext.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: passwordUpdateJob.podSecurityContext.fsGroup
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1001'
+    refToSpecVar: ''
+    UIVarTitle: passwordUpdateJob.podSecurityContext.fsGroup
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: passwordUpdateJob.podSecurityContext.fsGroupChangePolicy
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: Always
+    refToSpecVar: ''
+    UIVarTitle: passwordUpdateJob.podSecurityContext.fsGroupChangePolicy
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: passwordUpdateJob.previousPasswords.existingSecret
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: passwordUpdateJob.previousPasswords.existingSecret
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: passwordUpdateJob.previousPasswords.password
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: passwordUpdateJob.previousPasswords.password
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: passwordUpdateJob.previousPasswords.postgresPassword
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: passwordUpdateJob.previousPasswords.postgresPassword
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: passwordUpdateJob.previousPasswords.replicationPassword
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: passwordUpdateJob.previousPasswords.replicationPassword
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: passwordUpdateJob.resourcesPreset
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: micro
+    refToSpecVar: ''
+    UIVarTitle: passwordUpdateJob.resourcesPreset
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: postgresqlDataDir
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: /bitnami/postgresql/data
+    refToSpecVar: ''
+    UIVarTitle: postgresqlDataDir
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: postgresqlSharedPreloadLibraries
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: pgaudit
+    refToSpecVar: ''
+    UIVarTitle: postgresqlSharedPreloadLibraries
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: >-
+      {"name":"primary","configuration":"","pgHbaConfiguration":"","existingConfigmap":"","extendedConfiguration":"","existingExtendedConfigmap":"","initdb":{"args":"","postgresqlWalDir":"","scripts":{},"scriptsConfigMap":"","scriptsSecret":"","user":"","password":""},"preInitDb":{"scripts":{},"scriptsConfigMap":"","scriptsSecret":""},"standby":{"enabled":false,"primaryHost":"","primaryPort":""},"extraEnvVars":[],"extraEnvVarsCM":"","extraEnvVarsSecret":"","command":[],"args":[],"livenessProbe":{"enabled":true,"initialDelaySeconds":30,"periodSeconds":10,"timeoutSeconds":5,"failureThreshold":6,"successThreshold":1},"readinessProbe":{"enabled":true,"initialDelaySeconds":5,"periodSeconds":10,"timeoutSeconds":5,"failureThreshold":6,"successThreshold":1},"startupProbe":{"enabled":false,"initialDelaySeconds":30,"periodSeconds":10,"timeoutSeconds":1,"failureThreshold":15,"successThreshold":1},"customLivenessProbe":{},"customReadinessProbe":{},"customStartupProbe":{},"lifecycleHooks":{},"resourcesPreset":"nano","resources":{},"podSecurityContext":{"enabled":true,"fsGroupChangePolicy":"Always","sysctls":[],"supplementalGroups":[],"fsGroup":1001},"containerSecurityContext":{"enabled":true,"seLinuxOptions":{},"runAsUser":1001,"runAsGroup":1001,"runAsNonRoot":true,"privileged":false,"readOnlyRootFilesystem":true,"allowPrivilegeEscalation":false,"capabilities":{"drop":["ALL"]},"seccompProfile":{"type":"RuntimeDefault"}},"automountServiceAccountToken":false,"hostAliases":[],"hostNetwork":false,"hostIPC":false,"labels":{},"annotations":{},"podLabels":{},"podAnnotations":{},"podAffinityPreset":"","podAntiAffinityPreset":"soft","nodeAffinityPreset":{"type":"","key":"","values":[]},"affinity":{},"nodeSelector":{},"tolerations":[],"topologySpreadConstraints":[],"priorityClassName":"","schedulerName":"","terminationGracePeriodSeconds":"","updateStrategy":{"type":"RollingUpdate","rollingUpdate":{}},"extraVolumeMounts":[],"extraVolumes":[],"sidecars":[],"initContainers":[],"pdb":{"create":true,"minAvailable":"","maxUnavailable":""},"extraPodSpec":{},"networkPolicy":{"enabled":true,"allowExternal":true,"allowExternalEgress":true,"extraIngress":[],"extraEgress":[],"ingressNSMatchLabels":{},"ingressNSPodMatchLabels":{}},"service":{"type":"ClusterIP","ports":{"postgresql":5432},"nodePorts":{"postgresql":""},"clusterIP":"","annotations":{},"loadBalancerClass":"","loadBalancerIP":"","externalTrafficPolicy":"Cluster","loadBalancerSourceRanges":[],"extraPorts":[],"sessionAffinity":"None","sessionAffinityConfig":{},"headless":{"annotations":{}}},"persistence":{"enabled":true,"volumeName":"data","existingClaim":"","mountPath":"/bitnami/postgresql","subPath":"","storageClass":"","accessModes":["ReadWriteOnce"],"size":"8Gi","annotations":{},"labels":{},"selector":{},"dataSource":{}},"persistentVolumeClaimRetentionPolicy":{"enabled":false,"whenScaled":"Retain","whenDeleted":"Retain"}}
+    refToSpecVar: ''
+    UIVarTitle: primary
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.automountServiceAccountToken
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: primary.automountServiceAccountToken
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.configuration
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: primary.configuration
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.containerSecurityContext.allowPrivilegeEscalation
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: primary.containerSecurityContext.allowPrivilegeEscalation
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.containerSecurityContext.capabilities.drop.0
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ALL
+    refToSpecVar: ''
+    UIVarTitle: primary.containerSecurityContext.capabilities.drop.0
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.containerSecurityContext.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: primary.containerSecurityContext.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.containerSecurityContext.privileged
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: primary.containerSecurityContext.privileged
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.containerSecurityContext.readOnlyRootFilesystem
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: primary.containerSecurityContext.readOnlyRootFilesystem
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.containerSecurityContext.runAsGroup
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1001'
+    refToSpecVar: ''
+    UIVarTitle: primary.containerSecurityContext.runAsGroup
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.containerSecurityContext.runAsNonRoot
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: primary.containerSecurityContext.runAsNonRoot
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.containerSecurityContext.runAsUser
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1001'
+    refToSpecVar: ''
+    UIVarTitle: primary.containerSecurityContext.runAsUser
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.containerSecurityContext.seccompProfile.type
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: RuntimeDefault
+    refToSpecVar: ''
+    UIVarTitle: primary.containerSecurityContext.seccompProfile.type
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.existingConfigmap
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: primary.existingConfigmap
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.existingExtendedConfigmap
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: primary.existingExtendedConfigmap
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.extendedConfiguration
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: primary.extendedConfiguration
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.extraEnvVarsCM
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: primary.extraEnvVarsCM
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.extraEnvVarsSecret
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: primary.extraEnvVarsSecret
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.hostIPC
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: primary.hostIPC
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.hostNetwork
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: primary.hostNetwork
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.initdb.args
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: primary.initdb.args
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.initdb.password
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: primary.initdb.password
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.initdb.postgresqlWalDir
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: primary.initdb.postgresqlWalDir
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.initdb.scriptsConfigMap
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: primary.initdb.scriptsConfigMap
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.initdb.scriptsSecret
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: primary.initdb.scriptsSecret
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.initdb.user
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: primary.initdb.user
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.livenessProbe.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: primary.livenessProbe.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.livenessProbe.failureThreshold
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '6'
+    refToSpecVar: ''
+    UIVarTitle: primary.livenessProbe.failureThreshold
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.livenessProbe.initialDelaySeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '30'
+    refToSpecVar: ''
+    UIVarTitle: primary.livenessProbe.initialDelaySeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.livenessProbe.periodSeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '10'
+    refToSpecVar: ''
+    UIVarTitle: primary.livenessProbe.periodSeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.livenessProbe.successThreshold
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1'
+    refToSpecVar: ''
+    UIVarTitle: primary.livenessProbe.successThreshold
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.livenessProbe.timeoutSeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '5'
+    refToSpecVar: ''
+    UIVarTitle: primary.livenessProbe.timeoutSeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.name
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: primary
+    refToSpecVar: ''
+    UIVarTitle: primary.name
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.networkPolicy.allowExternal
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: primary.networkPolicy.allowExternal
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.networkPolicy.allowExternalEgress
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: primary.networkPolicy.allowExternalEgress
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.networkPolicy.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: primary.networkPolicy.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.nodeAffinityPreset.key
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: primary.nodeAffinityPreset.key
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.nodeAffinityPreset.type
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: primary.nodeAffinityPreset.type
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.pdb.create
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: primary.pdb.create
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.pdb.maxUnavailable
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: primary.pdb.maxUnavailable
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.pdb.minAvailable
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: primary.pdb.minAvailable
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.persistence.accessModes.0
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ReadWriteOnce
+    refToSpecVar: ''
+    UIVarTitle: primary.persistence.accessModes.0
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.persistence.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: primary.persistence.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.persistence.existingClaim
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: primary.persistence.existingClaim
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.persistence.mountPath
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: /bitnami/postgresql
+    refToSpecVar: ''
+    UIVarTitle: primary.persistence.mountPath
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.persistence.size
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 8Gi
+    refToSpecVar: ''
+    UIVarTitle: primary.persistence.size
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.persistence.storageClass
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: primary.persistence.storageClass
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.persistence.subPath
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: primary.persistence.subPath
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.persistence.volumeName
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: data
+    refToSpecVar: ''
+    UIVarTitle: primary.persistence.volumeName
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.persistentVolumeClaimRetentionPolicy.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: primary.persistentVolumeClaimRetentionPolicy.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.persistentVolumeClaimRetentionPolicy.whenDeleted
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: Retain
+    refToSpecVar: ''
+    UIVarTitle: primary.persistentVolumeClaimRetentionPolicy.whenDeleted
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.persistentVolumeClaimRetentionPolicy.whenScaled
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: Retain
+    refToSpecVar: ''
+    UIVarTitle: primary.persistentVolumeClaimRetentionPolicy.whenScaled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.pgHbaConfiguration
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: primary.pgHbaConfiguration
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.podAffinityPreset
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: primary.podAffinityPreset
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.podAntiAffinityPreset
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: soft
+    refToSpecVar: ''
+    UIVarTitle: primary.podAntiAffinityPreset
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.podSecurityContext.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: primary.podSecurityContext.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.podSecurityContext.fsGroup
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1001'
+    refToSpecVar: ''
+    UIVarTitle: primary.podSecurityContext.fsGroup
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.podSecurityContext.fsGroupChangePolicy
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: Always
+    refToSpecVar: ''
+    UIVarTitle: primary.podSecurityContext.fsGroupChangePolicy
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.preInitDb.scriptsConfigMap
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: primary.preInitDb.scriptsConfigMap
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.preInitDb.scriptsSecret
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: primary.preInitDb.scriptsSecret
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.priorityClassName
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: primary.priorityClassName
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.readinessProbe.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: primary.readinessProbe.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.readinessProbe.failureThreshold
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '6'
+    refToSpecVar: ''
+    UIVarTitle: primary.readinessProbe.failureThreshold
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.readinessProbe.initialDelaySeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '5'
+    refToSpecVar: ''
+    UIVarTitle: primary.readinessProbe.initialDelaySeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.readinessProbe.periodSeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '10'
+    refToSpecVar: ''
+    UIVarTitle: primary.readinessProbe.periodSeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.readinessProbe.successThreshold
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1'
+    refToSpecVar: ''
+    UIVarTitle: primary.readinessProbe.successThreshold
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.readinessProbe.timeoutSeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '5'
+    refToSpecVar: ''
+    UIVarTitle: primary.readinessProbe.timeoutSeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.resourcesPreset
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: nano
+    refToSpecVar: ''
+    UIVarTitle: primary.resourcesPreset
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.schedulerName
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: primary.schedulerName
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.service.clusterIP
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: primary.service.clusterIP
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.service.externalTrafficPolicy
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: Cluster
+    refToSpecVar: ''
+    UIVarTitle: primary.service.externalTrafficPolicy
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.service.loadBalancerClass
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: primary.service.loadBalancerClass
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.service.loadBalancerIP
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: primary.service.loadBalancerIP
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.service.nodePorts.postgresql
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: primary.service.nodePorts.postgresql
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.service.ports.postgresql
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '5432'
+    refToSpecVar: ''
+    UIVarTitle: primary.service.ports.postgresql
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.service.sessionAffinity
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: None
+    refToSpecVar: ''
+    UIVarTitle: primary.service.sessionAffinity
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.service.type
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ClusterIP
+    refToSpecVar: ''
+    UIVarTitle: primary.service.type
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.standby.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: primary.standby.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.standby.primaryHost
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: primary.standby.primaryHost
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.standby.primaryPort
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: primary.standby.primaryPort
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.startupProbe.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: primary.startupProbe.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.startupProbe.failureThreshold
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '15'
+    refToSpecVar: ''
+    UIVarTitle: primary.startupProbe.failureThreshold
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.startupProbe.initialDelaySeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '30'
+    refToSpecVar: ''
+    UIVarTitle: primary.startupProbe.initialDelaySeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.startupProbe.periodSeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '10'
+    refToSpecVar: ''
+    UIVarTitle: primary.startupProbe.periodSeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.startupProbe.successThreshold
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1'
+    refToSpecVar: ''
+    UIVarTitle: primary.startupProbe.successThreshold
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.startupProbe.timeoutSeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1'
+    refToSpecVar: ''
+    UIVarTitle: primary.startupProbe.timeoutSeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.terminationGracePeriodSeconds
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: primary.terminationGracePeriodSeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: primary.updateStrategy.type
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: RollingUpdate
+    refToSpecVar: ''
+    UIVarTitle: primary.updateStrategy.type
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: psp
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '{"create":false}'
+    refToSpecVar: ''
+    UIVarTitle: psp
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: psp.create
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: psp.create
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: rbac
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '{"create":false,"rules":[]}'
+    refToSpecVar: ''
+    UIVarTitle: rbac
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: rbac.create
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: rbac.create
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: >-
+      {"name":"read","replicaCount":1,"extendedConfiguration":"","extraEnvVars":[],"extraEnvVarsCM":"","extraEnvVarsSecret":"","command":[],"args":[],"livenessProbe":{"enabled":true,"initialDelaySeconds":30,"periodSeconds":10,"timeoutSeconds":5,"failureThreshold":6,"successThreshold":1},"readinessProbe":{"enabled":true,"initialDelaySeconds":5,"periodSeconds":10,"timeoutSeconds":5,"failureThreshold":6,"successThreshold":1},"startupProbe":{"enabled":false,"initialDelaySeconds":30,"periodSeconds":10,"timeoutSeconds":1,"failureThreshold":15,"successThreshold":1},"customLivenessProbe":{},"customReadinessProbe":{},"customStartupProbe":{},"lifecycleHooks":{},"resourcesPreset":"nano","resources":{},"podSecurityContext":{"enabled":true,"fsGroupChangePolicy":"Always","sysctls":[],"supplementalGroups":[],"fsGroup":1001},"containerSecurityContext":{"enabled":true,"seLinuxOptions":{},"runAsUser":1001,"runAsGroup":1001,"runAsNonRoot":true,"privileged":false,"readOnlyRootFilesystem":true,"allowPrivilegeEscalation":false,"capabilities":{"drop":["ALL"]},"seccompProfile":{"type":"RuntimeDefault"}},"automountServiceAccountToken":false,"hostAliases":[],"hostNetwork":false,"hostIPC":false,"labels":{},"annotations":{},"podLabels":{},"podAnnotations":{},"podAffinityPreset":"","podAntiAffinityPreset":"soft","nodeAffinityPreset":{"type":"","key":"","values":[]},"affinity":{},"nodeSelector":{},"tolerations":[],"topologySpreadConstraints":[],"priorityClassName":"","schedulerName":"","terminationGracePeriodSeconds":"","updateStrategy":{"type":"RollingUpdate","rollingUpdate":{}},"extraVolumeMounts":[],"extraVolumes":[],"sidecars":[],"initContainers":[],"pdb":{"create":true,"minAvailable":"","maxUnavailable":""},"extraPodSpec":{},"networkPolicy":{"enabled":true,"allowExternal":true,"allowExternalEgress":true,"extraIngress":[],"extraEgress":[],"ingressNSMatchLabels":{},"ingressNSPodMatchLabels":{}},"service":{"type":"ClusterIP","ports":{"postgresql":5432},"nodePorts":{"postgresql":""},"clusterIP":"","annotations":{},"loadBalancerClass":"","loadBalancerIP":"","externalTrafficPolicy":"Cluster","loadBalancerSourceRanges":[],"extraPorts":[],"sessionAffinity":"None","sessionAffinityConfig":{},"headless":{"annotations":{}}},"persistence":{"enabled":true,"existingClaim":"","mountPath":"/bitnami/postgresql","subPath":"","storageClass":"","accessModes":["ReadWriteOnce"],"size":"8Gi","annotations":{},"labels":{},"selector":{},"dataSource":{}},"persistentVolumeClaimRetentionPolicy":{"enabled":false,"whenScaled":"Retain","whenDeleted":"Retain"}}
+    refToSpecVar: ''
+    UIVarTitle: readReplicas
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.automountServiceAccountToken
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.automountServiceAccountToken
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.containerSecurityContext.allowPrivilegeEscalation
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.containerSecurityContext.allowPrivilegeEscalation
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.containerSecurityContext.capabilities.drop.0
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ALL
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.containerSecurityContext.capabilities.drop.0
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.containerSecurityContext.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.containerSecurityContext.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.containerSecurityContext.privileged
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.containerSecurityContext.privileged
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.containerSecurityContext.readOnlyRootFilesystem
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.containerSecurityContext.readOnlyRootFilesystem
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.containerSecurityContext.runAsGroup
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1001'
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.containerSecurityContext.runAsGroup
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.containerSecurityContext.runAsNonRoot
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.containerSecurityContext.runAsNonRoot
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.containerSecurityContext.runAsUser
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1001'
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.containerSecurityContext.runAsUser
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.containerSecurityContext.seccompProfile.type
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: RuntimeDefault
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.containerSecurityContext.seccompProfile.type
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.extendedConfiguration
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.extendedConfiguration
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.extraEnvVarsCM
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.extraEnvVarsCM
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.extraEnvVarsSecret
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.extraEnvVarsSecret
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.hostIPC
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.hostIPC
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.hostNetwork
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.hostNetwork
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.livenessProbe.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.livenessProbe.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.livenessProbe.failureThreshold
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '6'
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.livenessProbe.failureThreshold
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.livenessProbe.initialDelaySeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '30'
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.livenessProbe.initialDelaySeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.livenessProbe.periodSeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '10'
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.livenessProbe.periodSeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.livenessProbe.successThreshold
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1'
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.livenessProbe.successThreshold
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.livenessProbe.timeoutSeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '5'
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.livenessProbe.timeoutSeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.name
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: read
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.name
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.networkPolicy.allowExternal
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.networkPolicy.allowExternal
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.networkPolicy.allowExternalEgress
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.networkPolicy.allowExternalEgress
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.networkPolicy.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.networkPolicy.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.nodeAffinityPreset.key
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.nodeAffinityPreset.key
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.nodeAffinityPreset.type
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.nodeAffinityPreset.type
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.pdb.create
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.pdb.create
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.pdb.maxUnavailable
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.pdb.maxUnavailable
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.pdb.minAvailable
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.pdb.minAvailable
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.persistence.accessModes.0
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ReadWriteOnce
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.persistence.accessModes.0
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.persistence.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.persistence.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.persistence.existingClaim
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.persistence.existingClaim
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.persistence.mountPath
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: /bitnami/postgresql
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.persistence.mountPath
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.persistence.size
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 8Gi
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.persistence.size
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.persistence.storageClass
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.persistence.storageClass
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.persistence.subPath
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.persistence.subPath
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.persistentVolumeClaimRetentionPolicy.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.persistentVolumeClaimRetentionPolicy.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.persistentVolumeClaimRetentionPolicy.whenDeleted
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: Retain
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.persistentVolumeClaimRetentionPolicy.whenDeleted
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.persistentVolumeClaimRetentionPolicy.whenScaled
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: Retain
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.persistentVolumeClaimRetentionPolicy.whenScaled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.podAffinityPreset
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.podAffinityPreset
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.podAntiAffinityPreset
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: soft
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.podAntiAffinityPreset
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.podSecurityContext.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.podSecurityContext.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.podSecurityContext.fsGroup
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1001'
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.podSecurityContext.fsGroup
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.podSecurityContext.fsGroupChangePolicy
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: Always
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.podSecurityContext.fsGroupChangePolicy
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.priorityClassName
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.priorityClassName
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.readinessProbe.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.readinessProbe.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.readinessProbe.failureThreshold
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '6'
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.readinessProbe.failureThreshold
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.readinessProbe.initialDelaySeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '5'
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.readinessProbe.initialDelaySeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.readinessProbe.periodSeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '10'
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.readinessProbe.periodSeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.readinessProbe.successThreshold
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1'
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.readinessProbe.successThreshold
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.readinessProbe.timeoutSeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '5'
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.readinessProbe.timeoutSeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.replicaCount
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1'
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.replicaCount
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.resourcesPreset
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: nano
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.resourcesPreset
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.schedulerName
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.schedulerName
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.service.clusterIP
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.service.clusterIP
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.service.externalTrafficPolicy
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: Cluster
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.service.externalTrafficPolicy
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.service.loadBalancerClass
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.service.loadBalancerClass
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.service.loadBalancerIP
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.service.loadBalancerIP
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.service.nodePorts.postgresql
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.service.nodePorts.postgresql
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.service.ports.postgresql
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '5432'
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.service.ports.postgresql
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.service.sessionAffinity
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: None
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.service.sessionAffinity
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.service.type
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ClusterIP
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.service.type
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.startupProbe.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.startupProbe.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.startupProbe.failureThreshold
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '15'
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.startupProbe.failureThreshold
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.startupProbe.initialDelaySeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '30'
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.startupProbe.initialDelaySeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.startupProbe.periodSeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '10'
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.startupProbe.periodSeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.startupProbe.successThreshold
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1'
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.startupProbe.successThreshold
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.startupProbe.timeoutSeconds
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1'
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.startupProbe.timeoutSeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.terminationGracePeriodSeconds
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.terminationGracePeriodSeconds
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: readReplicas.updateStrategy.type
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: RollingUpdate
+    refToSpecVar: ''
+    UIVarTitle: readReplicas.updateStrategy.type
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: replication
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: >-
+      {"synchronousCommit":"off","numSynchronousReplicas":0,"applicationName":"my_application"}
+    refToSpecVar: ''
+    UIVarTitle: replication
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: replication.applicationName
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: my_application
+    refToSpecVar: ''
+    UIVarTitle: replication.applicationName
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: replication.numSynchronousReplicas
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '0'
+    refToSpecVar: ''
+    UIVarTitle: replication.numSynchronousReplicas
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: replication.synchronousCommit
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'off'
+    refToSpecVar: ''
+    UIVarTitle: replication.synchronousCommit
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: serviceAccount
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: >-
+      {"create":true,"name":"","automountServiceAccountToken":false,"annotations":{}}
+    refToSpecVar: ''
+    UIVarTitle: serviceAccount
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: serviceAccount.automountServiceAccountToken
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: serviceAccount.automountServiceAccountToken
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: serviceAccount.create
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: serviceAccount.create
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: serviceAccount.name
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: serviceAccount.name
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: serviceBindings
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '{"enabled":false}'
+    refToSpecVar: ''
+    UIVarTitle: serviceBindings
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: serviceBindings.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: serviceBindings.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: shmVolume
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '{"enabled":true,"sizeLimit":""}'
+    refToSpecVar: ''
+    UIVarTitle: shmVolume
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: shmVolume.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: shmVolume.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: shmVolume.sizeLimit
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: shmVolume.sizeLimit
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: tls
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: >-
+      {"enabled":false,"autoGenerated":false,"preferServerCiphers":true,"certificatesSecret":"","certFilename":"","certKeyFilename":"","certCAFilename":"","crlFilename":""}
+    refToSpecVar: ''
+    UIVarTitle: tls
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: tls.autoGenerated
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: tls.autoGenerated
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: tls.certCAFilename
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: tls.certCAFilename
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: tls.certFilename
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: tls.certFilename
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: tls.certificatesSecret
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: tls.certificatesSecret
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: tls.certKeyFilename
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: tls.certKeyFilename
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: tls.crlFilename
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: tls.crlFilename
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: tls.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: tls.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: tls.preferServerCiphers
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: tls.preferServerCiphers
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: volumePermissions
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: >-
+      {"enabled":false,"image":{"registry":"docker.io","repository":"bitnami/os-shell","tag":"12-debian-12-r33","digest":"","pullPolicy":"IfNotPresent","pullSecrets":[]},"resourcesPreset":"nano","resources":{},"containerSecurityContext":{"seLinuxOptions":{},"runAsUser":0,"runAsGroup":0,"runAsNonRoot":false,"seccompProfile":{"type":"RuntimeDefault"}}}
+    refToSpecVar: ''
+    UIVarTitle: volumePermissions
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: volumePermissions.containerSecurityContext.runAsGroup
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '0'
+    refToSpecVar: ''
+    UIVarTitle: volumePermissions.containerSecurityContext.runAsGroup
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: volumePermissions.containerSecurityContext.runAsNonRoot
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: volumePermissions.containerSecurityContext.runAsNonRoot
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: volumePermissions.containerSecurityContext.runAsUser
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '0'
+    refToSpecVar: ''
+    UIVarTitle: volumePermissions.containerSecurityContext.runAsUser
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: volumePermissions.containerSecurityContext.seccompProfile.type
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: RuntimeDefault
+    refToSpecVar: ''
+    UIVarTitle: volumePermissions.containerSecurityContext.seccompProfile.type
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: volumePermissions.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: volumePermissions.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: volumePermissions.image.digest
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: volumePermissions.image.digest
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: volumePermissions.image.pullPolicy
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: IfNotPresent
+    refToSpecVar: ''
+    UIVarTitle: volumePermissions.image.pullPolicy
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: volumePermissions.image.registry
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: docker.io
+    refToSpecVar: ''
+    UIVarTitle: volumePermissions.image.registry
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: volumePermissions.image.repository
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: bitnami/os-shell
+    refToSpecVar: ''
+    UIVarTitle: volumePermissions.image.repository
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: volumePermissions.image.tag
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 12-debian-12-r33
+    refToSpecVar: ''
+    UIVarTitle: volumePermissions.image.tag
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: volumePermissions.resourcesPreset
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: nano
+    refToSpecVar: ''
+    UIVarTitle: volumePermissions.resourcesPreset
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+helmChartName: postgresql
