@@ -5,14 +5,17 @@ metadata:
   name: evershop
   labels:
     app-type: evershop
+    app.kubernetes.io/name: evershop
 spec:
   selector:
     matchLabels:
       app-type: evershop
+      app.kubernetes.io/name: evershop
   template:
     metadata:
       labels:
         app-type: evershop
+        app.kubernetes.io/name: evershop
     spec:
       containers:
         - name: back
@@ -21,6 +24,8 @@ spec:
             requests:
               memory: 100Mi
               cpu: 50m
+          ports:
+            - containerPort: 80
           env:
             - name: DB_NAME
               value: "{{ .Values.global.postgresql.auth.database }}"
@@ -32,3 +37,21 @@ spec:
               value: "{{ .Values.evershop.DB_PORT }}"
             - name: DB_HOST
               value: "{{ .Values.evershop.DB_HOST }}"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: evershop
+  namespace: "{{ .Release.Namespace }}"
+  labels:
+    app: evershop
+spec:
+  type: ClusterIP
+  sessionAffinity: None
+  ports:
+    - name: http
+      port: 80
+  selector:
+    app.kubernetes.io/name: evershop
+    app-type: evershop
