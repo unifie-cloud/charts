@@ -1,0 +1,4 @@
+name: evershop
+uiType: helm
+helmRepositoryName: evershop
+helmRepositoryChartName: evershop
