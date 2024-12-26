@@ -28,3 +28,7 @@ helm repo add unifie https://unifie-cloud.github.io/charts/helm
 
 Add extension [Amazon S3 Storage](https://evershop.io/extensions) or [Azure Blob Storage](https://evershop.io/extensions) for storing media files separately from deployment.
 It will allow to use stateless deployment instead of Stateful.
+
+## Source code
+
+[Source code](https://github.com/unifie-cloud/charts/tree/main/helm/evershop)
