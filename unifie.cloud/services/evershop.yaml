@@ -2,7 +2,34 @@ name: evershop
 uiType: helm
 helmRepositoryName: evershop
 helmRepositoryChartName: evershop
-rules: []
+rules:
+  - varName: evershop
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '{"DB_PORT":"5432","DB_HOST":"unifie-postgresql"}'
+    refToSpecVar: ''
+    UIVarTitle: evershop
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: evershop.DB_HOST
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: release-name-postgresql
+    refToSpecVar: ''
+    UIVarTitle: evershop.DB_HOST
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: evershop.DB_PORT
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '5432'
+    refToSpecVar: ''
+    UIVarTitle: evershop.DB_PORT
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
 routes:
   - host: '{{ .deployment.domain }}'
     http:
@@ -13,7 +40,7 @@ routes:
             service:
               name: evershop
               port:
-                number: 80
+                number: 3000
 monitoring:
   - host: '{{ .deployment.domain }}'
     path: /
