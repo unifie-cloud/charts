@@ -3,30 +3,93 @@ uiType: helm
 helmRepositoryName: evershop
 helmRepositoryChartName: evershop
 rules:
-  - varName: evershop
+  - varName: db
     varValueType: object
     varValueSrcType: src_hardcoded
-    hardcodedDefaultValue: '{"DB_PORT":"5432","DB_HOST":"unifie-postgresql"}'
+    hardcodedDefaultValue: '{"database":"","port":"","host":"","username":"","password":""}'
     refToSpecVar: ''
-    UIVarTitle: evershop
+    UIVarTitle: db
     varApplyMethod: method_replace
     UIVarValidationRules: []
     UIVarInputType: string
-  - varName: evershop.DB_HOST
+  - varName: db.database
     varValueType: string
     varValueSrcType: src_hardcoded
-    hardcodedDefaultValue: release-name-postgresql
+    hardcodedDefaultValue: ''
     refToSpecVar: ''
-    UIVarTitle: evershop.DB_HOST
+    UIVarTitle: db.database
     varApplyMethod: method_replace
     UIVarValidationRules: []
     UIVarInputType: string
-  - varName: evershop.DB_PORT
+  - varName: db.host
     varValueType: string
     varValueSrcType: src_hardcoded
-    hardcodedDefaultValue: '5432'
+    hardcodedDefaultValue: ''
     refToSpecVar: ''
-    UIVarTitle: evershop.DB_PORT
+    UIVarTitle: db.host
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: db.password
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: db.password
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: db.port
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: db.port
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: db.username
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: db.username
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: global
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '{"postgresql":{"auth":{"username":"","password":"","database":""}}}'
+    refToSpecVar: ''
+    UIVarTitle: global
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: global.postgresql.auth.database
+    varValueType: string
+    varValueSrcType: src_deployment_ui
+    hardcodedDefaultValue: default
+    refToSpecVar: ''
+    UIVarTitle: Database name
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: global.postgresql.auth.password
+    varValueType: string
+    varValueSrcType: src_deployment_ui
+    hardcodedDefaultValue: secret-password
+    refToSpecVar: ''
+    UIVarTitle: Database password
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: password
+  - varName: global.postgresql.auth.username
+    varValueType: string
+    varValueSrcType: src_deployment_ui
+    hardcodedDefaultValue: user
+    refToSpecVar: ''
+    UIVarTitle: Database username
     varApplyMethod: method_replace
     UIVarValidationRules: []
     UIVarInputType: string

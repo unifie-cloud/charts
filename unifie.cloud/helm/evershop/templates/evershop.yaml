@@ -28,15 +28,15 @@ spec:
             - containerPort: 3000
           env:
             - name: DB_NAME
-              value: "{{ .Values.global.postgresql.auth.database }}"
+              value: "{{- coalesce .Values.global.postgresql.auth.database .Values.db.database "default" }}"
             - name: DB_USER
-              value: "{{ .Values.global.postgresql.auth.username }}"
+              value: "{{- coalesce .Values.global.postgresql.auth.username .Values.db.username "user" }}"
             - name: DB_PASSWORD
-              value: "{{ .Values.global.postgresql.auth.password }}"
+              value: "{{- coalesce .Values.global.postgresql.auth.password .Values.db.password }}"
             - name: DB_PORT
-              value: "{{ .Values.evershop.DB_PORT }}"
+              value: "{{- coalesce .Values.global.postgresql.auth.port .Values.db.port 5432 }}"
             - name: DB_HOST
-              value: "{{ .Values.evershop.DB_HOST }}"
+              value: "{{- coalesce .Values.global.postgresql.auth.host .Values.db.host "release-name-postgresql" }}"
 
 ---
 apiVersion: v1
