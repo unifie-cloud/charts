@@ -10,7 +10,7 @@ keywords:
 maintainers:
   - email: Levhav@yandex.com
     name: Victor.Trapenok
-name: EverShop
+name: evershop
 sources:
   - https://github.com/unifie-cloud/evershop/helm/evershop
 version: 1.0
