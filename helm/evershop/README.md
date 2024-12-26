@@ -18,7 +18,7 @@ helm repo add unifie https://unifie-cloud.github.io/charts/helm
 | global.postgresql.auth.port     | Database port     |
 | global.postgresql.auth.host     | Database host     |
 
-## variables
+## Variables
 
 | Name           | Description                                |
 | -------------- | ------------------------------------------ |
