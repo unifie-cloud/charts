@@ -1,0 +1,24 @@
+apiVersion: v1
+entries:
+  evershop:
+    - apiVersion: v2
+      created: "2024-12-26T12:41:10.19185037+05:00"
+      description: NodeJS E-commerce Platform
+      digest: 8da056f657113069d5cc97720896c3662bb8749eec20f59e3cf806131c387e39
+      home: https://github.com/evershopcommerce/evershop
+      icon: https://avatars.githubusercontent.com/u/83757778?s=48&v=4
+      keywords:
+        - ecommerce
+        - shop
+        - postgresql
+        - react
+      maintainers:
+        - email: Levhav@yandex.ru
+          name: VictorTrapenok
+      name: evershop
+      sources:
+        - https://github.com/unifie-cloud/evershop/helm/evershop
+      urls:
+        - evershop-1.tgz
+      version: "1"
+generated: "2024-12-26T12:41:10.191582853+05:00"
