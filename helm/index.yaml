@@ -2,10 +2,10 @@ apiVersion: v1
 entries:
   evershop:
   - apiVersion: v2
-    created: "2024-12-26T14:19:08.911155014+05:00"
+    created: "2024-12-26T14:46:54.486894199+05:00"
     description: NodeJS E-commerce Platform
-    digest: 2de8b3e26f13717c2f304abf0b53e51f3677952489011311920a1908e1032654
-    home: https://github.com/evershopcommerce/evershop
+    digest: a5e436d24d8e7c38c8d5fed14598755651c310b9d6110dc2ceff5992df2b6f58
+    home: https://unifie-cloud.github.io/charts/helm/evershop/
     icon: https://avatars.githubusercontent.com/u/83757778?s=48&v=4
     keywords:
     - ecommerce
@@ -17,8 +17,8 @@ entries:
       name: VictorTrapenok
     name: evershop
     sources:
-    - https://github.com/unifie-cloud/evershop/helm/evershop
+    - https://unifie-cloud.github.io/charts/helm/evershop/
     urls:
     - evershop-1.0.tgz
     version: "1.0"
-generated: "2024-12-26T14:19:08.910883902+05:00"
+generated: "2024-12-26T14:46:54.48661241+05:00"

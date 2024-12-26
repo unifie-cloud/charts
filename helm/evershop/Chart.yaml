@@ -12,5 +12,5 @@ maintainers:
     name: VictorTrapenok
 name: evershop
 sources:
-  - https://github.com/unifie-cloud/charts/tree/main/helm/evershop
+  - https://unifie-cloud.github.io/charts/helm/evershop/
 version: "1.0"
