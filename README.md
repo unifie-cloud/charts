@@ -1,1 +1,3 @@
-# EverShop helm chart
+# Unifie helm chart
+
+- [EverShop helm chart](/charts/helm/evershop/)

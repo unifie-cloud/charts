@@ -13,4 +13,4 @@ maintainers:
 name: evershop
 sources:
   - https://github.com/unifie-cloud/evershop/helm/evershop
-version: 1.0
+version: "1.0"

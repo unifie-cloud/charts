@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: back
-          image: "evershop/evershop:latest"
+          image: "{{ .Values.evershop.image }}"
           resources:
             requests:
               memory: 100Mi

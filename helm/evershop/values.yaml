@@ -16,3 +16,6 @@ db:
   host: ""
   username: ""
   password: ""
+
+evershop:
+  image: "evershop/evershop:latest"
