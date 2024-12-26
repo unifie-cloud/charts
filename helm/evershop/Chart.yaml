@@ -1,6 +1,6 @@
 apiVersion: v2
 description: NodeJS E-commerce Platform
-home: https://github.com/evershopcommerce/evershop
+home: https://unifie-cloud.github.io/charts/helm/evershop/
 icon: https://avatars.githubusercontent.com/u/83757778?s=48&v=4
 keywords:
   - ecommerce
@@ -12,5 +12,5 @@ maintainers:
     name: VictorTrapenok
 name: evershop
 sources:
-  - https://github.com/unifie-cloud/evershop/helm/evershop
+  - https://github.com/unifie-cloud/charts/tree/main/helm/evershop
 version: "1.0"

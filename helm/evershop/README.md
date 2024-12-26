@@ -1,6 +1,6 @@
 # EverShop helm chart
 
-Evershop - https://evershop.io
+[Evershop](https://evershop.io) - NodeJS E-commerce Platform
 
 ## Globals variables
 
