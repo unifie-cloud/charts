@@ -32,3 +32,5 @@ It will allow to use stateless deployment instead of Stateful.
 ## Source code
 
 [Source code](https://github.com/unifie-cloud/charts/tree/main/helm/evershop)
+
+[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/unifie)](https://artifacthub.io/packages/search?repo=unifie)
