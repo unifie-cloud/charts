@@ -2,6 +2,12 @@
 
 [Evershop](https://evershop.io) - NodeJS E-commerce Platform
 
+# Usage
+
+```bash
+helm repo add unifie https://unifie-cloud.github.io/charts/helm
+```
+
 ## Globals variables
 
 | Name                            | Description       |
