@@ -1,24 +1,24 @@
 apiVersion: v1
 entries:
   evershop:
-  - apiVersion: v2
-    created: "2024-12-26T14:46:54.486894199+05:00"
-    description: NodeJS E-commerce Platform
-    digest: a5e436d24d8e7c38c8d5fed14598755651c310b9d6110dc2ceff5992df2b6f58
-    home: https://unifie-cloud.github.io/charts/helm/evershop/
-    icon: https://avatars.githubusercontent.com/u/83757778?s=48&v=4
-    keywords:
-    - ecommerce
-    - shop
-    - postgresql
-    - react
-    maintainers:
-    - email: Levhav@yandex.ru
-      name: VictorTrapenok
-    name: evershop
-    sources:
-    - https://unifie-cloud.github.io/charts/helm/evershop/
-    urls:
-    - evershop-1.0.tgz
-    version: "1.0"
-generated: "2024-12-26T14:46:54.48661241+05:00"
+    - apiVersion: v2
+      created: "2024-12-27T11:55:26.598265004+05:00"
+      description: NodeJS E-commerce Platform
+      digest: f9433d8932f0a114d2d24de0c8640dba5d047327634330ab7ae7300fc32bcc8f
+      home: https://github.com/unifie-cloud/charts/tree/main/helm/evershop
+      icon: https://avatars.githubusercontent.com/u/83757778?s=48&v=4
+      keywords:
+        - ecommerce
+        - shop
+        - postgresql
+        - react
+      maintainers:
+        - email: Levhav@yandex.ru
+          name: VictorTrapenok
+      name: evershop
+      sources:
+        - https://github.com/unifie-cloud/charts/tree/main/helm/evershop
+      urls:
+        - evershop-1.0.tgz
+      version: "1.0"
+generated: "2024-12-27T11:55:26.598034349+05:00"
