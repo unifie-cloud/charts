@@ -1,5 +1,5 @@
 apiVersion: v2
-description: Template for your own SaaS cloud store. Allow tp build cloud SaaS platform from any software to drive more usage, unlock more revenue and grow faster.
+description: Template for your own SaaS cloud store. Allow to build cloud SaaS platform from any software to drive more usage, unlock more revenue and grow faster.
 home: https://github.com/unifie-cloud/u-store
 keywords:
   - ecommerce

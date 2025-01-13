@@ -1,8 +1,6 @@
-# EverShop helm chart
-
 # U-store
 
-[Helm chart for u-store](https://github.com/unifie-cloud/u-store) - Template for your own SaaS cloud store. Allow tp build cloud SaaS platform from any software to drive more usage, unlock more revenue and grow faster.
+[U-store](https://github.com/unifie-cloud/u-store) - Template for your own SaaS cloud store. Allow to build cloud SaaS platform from any software to drive more usage, unlock more revenue and grow faster.
 
 ```bash
 helm repo add unifie https://unifie-cloud.github.io/charts/helm
@@ -16,10 +14,12 @@ This document describes the configurable values in the `values.yaml` file for th
 
 ## Parameters
 
-### `store`
+### store
 
 - **image**: (string) The Docker image for the Unifie store. [List of images in ECR](https://gallery.ecr.aws/g4a0y2u8/unifie-store).
 - **schema**: (JSON string) Schema definition for the Unifie application.
+- **APP_DOMAIN**: string host name for deployment
+- **APP_PROTOCOL**: https or http (Default `https`)
 
 ---
 
@@ -27,7 +27,6 @@ This document describes the configurable values in the `values.yaml` file for th
 
 ### Authentication and Security
 
-- **`NEXTAUTH_URL`**: Base URL for authentication. Example: `http://localhost:4002`.
 - **`NEXTAUTH_SECRET`**: Secret key for signing authentication tokens.
 - **`SMTP_HOST`**: SMTP server host for email notifications.
 - **`SMTP_PORT`**: SMTP server port.
