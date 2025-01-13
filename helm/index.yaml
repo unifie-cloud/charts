@@ -1,24 +1,48 @@
 apiVersion: v1
 entries:
   evershop:
-    - apiVersion: v2
-      created: "2024-12-27T11:55:26.598265004+05:00"
-      description: NodeJS E-commerce Platform
-      digest: f9433d8932f0a114d2d24de0c8640dba5d047327634330ab7ae7300fc32bcc8f
-      home: https://github.com/unifie-cloud/charts/tree/main/helm/evershop
-      icon: https://avatars.githubusercontent.com/u/83757778?s=48&v=4
-      keywords:
-        - ecommerce
-        - shop
-        - postgresql
-        - react
-      maintainers:
-        - email: Levhav@yandex.ru
-          name: VictorTrapenok
-      name: evershop
-      sources:
-        - https://github.com/unifie-cloud/charts/tree/main/helm/evershop
-      urls:
-        - evershop-1.0.tgz
-      version: "1.0"
-generated: "2024-12-27T11:55:26.598034349+05:00"
+  - apiVersion: v2
+    created: "2025-01-13T15:13:18.135799598+05:00"
+    description: NodeJS E-commerce Platform
+    digest: 44e32a294ad4da13c0adb02525cf44ce45d9c613d273e7a72fb1279a8d80e24c
+    home: https://github.com/unifie-cloud/charts/tree/main/helm/evershop
+    icon: https://avatars.githubusercontent.com/u/83757778?s=48&v=4
+    keywords:
+    - ecommerce
+    - shop
+    - postgresql
+    - react
+    maintainers:
+    - email: Levhav@yandex.ru
+      name: VictorTrapenok
+    name: evershop
+    sources:
+    - https://github.com/unifie-cloud/charts/tree/main/helm/evershop
+    urls:
+    - evershop-1.0.tgz
+    version: "1.0"
+  u-store:
+  - apiVersion: v2
+    created: "2025-01-13T15:13:18.136202782+05:00"
+    description: Template for your own SaaS cloud store. Allow tp build cloud SaaS
+      platform from any software to drive more usage, unlock more revenue and grow
+      faster.
+    digest: 89c79e2e6d36a1b27b4fbcfd658420cbaab2f118576d0a588f6f0826bc7f880a
+    home: https://github.com/unifie-cloud/u-store
+    keywords:
+    - ecommerce
+    - shop
+    - postgresql
+    - react
+    - kubernetes
+    - SaaS cloud
+    maintainers:
+    - email: Levhav@yandex.ru
+      name: VictorTrapenok
+    name: u-store
+    sources:
+    - https://github.com/unifie-cloud/u-store-app-template
+    urls:
+    - u-store-1.0.tgz
+    version: "1.0"
+generated: "2025-01-13T15:13:18.135509865+05:00"
