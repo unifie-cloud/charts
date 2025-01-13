@@ -51,9 +51,9 @@ spec:
               {{- end -}}
             {{- end }}
             - name: "APP_URL"
-              value: "{{ .Values.APP_PROTOCOL}}://{{ .Values.APP_DOMAIN}}"
+              value: "{{ .Values.store.APP_PROTOCOL}}://{{ .Values.store.APP_DOMAIN}}"
             - name: "NEXTAUTH_URL"
-              value: "{{ .Values.APP_PROTOCOL}}://{{ .Values.APP_DOMAIN}}"
+              value: "{{ .Values.store.APP_PROTOCOL}}://{{ .Values.store.APP_DOMAIN}}"
 ---
 apiVersion: v1
 kind: Service
