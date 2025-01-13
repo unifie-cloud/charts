@@ -1,0 +1,73 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: "{{ .Release.Namespace }}"
+  name: ustore-configs
+data:
+  schema.json: {{ .Values.store.schema | toJson }}
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: "{{ .Release.Namespace }}"
+  name: store
+  labels:
+    app-type: store
+    app.kubernetes.io/name: store
+spec:
+  selector:
+    matchLabels:
+      app-type: store
+      app.kubernetes.io/name: store
+  template:
+    metadata:
+      labels:
+        app-type: store
+        app.kubernetes.io/name: store
+    spec:
+      volumes:
+        - name: ustore-configs
+          configMap:
+            name: ustore-configs
+      containers:
+        - name: back
+          image: "{{ .Values.store.image }}"
+          volumeMounts:
+            - name: ustore-configs
+              mountPath: /unifie-config-maps
+          resources:
+            requests:
+              memory: 100Mi
+              cpu: 50m
+          ports:
+            - containerPort: 4002
+          env:
+            {{- range $k, $v := .Values.env }}
+              {{- if $v }}
+            - name: "{{ $k }}"
+              value: "{{ $v }}"
+              {{- end -}}
+            {{- end }}
+            - name: "APP_URL"
+              value: "{{ .Values.APP_PROTOCOL}}://{{ .Values.APP_DOMAIN}}"
+            - name: "NEXTAUTH_URL"
+              value: "{{ .Values.APP_PROTOCOL}}://{{ .Values.APP_DOMAIN}}"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: store
+  namespace: "{{ .Release.Namespace }}"
+  labels:
+    app: store
+spec:
+  type: ClusterIP
+  sessionAffinity: None
+  ports:
+    - name: http
+      port: 4002
+  selector:
+    app.kubernetes.io/name: store
+    app-type: store

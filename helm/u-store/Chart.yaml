@@ -1,0 +1,17 @@
+apiVersion: v2
+description: Template for your own SaaS cloud store. Allow tp build cloud SaaS platform from any software to drive more usage, unlock more revenue and grow faster.
+home: https://github.com/unifie-cloud/u-store
+keywords:
+  - ecommerce
+  - shop
+  - postgresql
+  - react
+  - kubernetes
+  - SaaS cloud
+maintainers:
+  - email: Levhav@yandex.ru
+    name: VictorTrapenok
+name: u-store
+sources:
+  - https://github.com/unifie-cloud/u-store-app-template
+version: "1.0"
