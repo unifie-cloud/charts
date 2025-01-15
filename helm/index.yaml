@@ -2,9 +2,9 @@ apiVersion: v1
 entries:
   evershop:
   - apiVersion: v2
-    created: "2025-01-13T17:17:51.000824122+05:00"
+    created: "2025-01-15T16:06:26.681922945+05:00"
     description: NodeJS E-commerce Platform
-    digest: 7c6cbc9d10fedfede9af5e2bea709cf5c2b1da2e03fa293dff04952b2323d505
+    digest: 45698c07931f9045d48d810b5cf7666795c7ad399a627ba448f89ad27fdef66a
     home: https://github.com/unifie-cloud/charts/tree/main/helm/evershop
     icon: https://avatars.githubusercontent.com/u/83757778?s=48&v=4
     keywords:
@@ -23,7 +23,30 @@ entries:
     version: "1.0"
   u-store:
   - apiVersion: v2
-    created: "2025-01-13T17:17:51.001704428+05:00"
+    created: "2025-01-15T16:06:26.683018924+05:00"
+    description: Template for your own SaaS cloud store. Allow to build cloud SaaS
+      platform from any software to drive more usage, unlock more revenue and grow
+      faster.
+    digest: 0da9f5fd2c6f4dcd726f7952a9916fb11e2fa0599703b0f4c17f333e04cec8ab
+    home: https://github.com/unifie-cloud/u-store
+    keywords:
+    - ecommerce
+    - shop
+    - postgresql
+    - react
+    - kubernetes
+    - SaaS cloud
+    maintainers:
+    - email: Levhav@yandex.ru
+      name: VictorTrapenok
+    name: u-store
+    sources:
+    - https://github.com/unifie-cloud/u-store-app-template
+    urls:
+    - u-store-1.2.tgz
+    version: "1.2"
+  - apiVersion: v2
+    created: "2025-01-15T16:06:26.682686252+05:00"
     description: Template for your own SaaS cloud store. Allow to build cloud SaaS
       platform from any software to drive more usage, unlock more revenue and grow
       faster.
@@ -46,7 +69,7 @@ entries:
     - u-store-1.1.tgz
     version: "1.1"
   - apiVersion: v2
-    created: "2025-01-13T17:17:51.001297463+05:00"
+    created: "2025-01-15T16:06:26.682327813+05:00"
     description: Template for your own SaaS cloud store. Allow tp build cloud SaaS
       platform from any software to drive more usage, unlock more revenue and grow
       faster.
@@ -68,4 +91,4 @@ entries:
     urls:
     - u-store-1.0.tgz
     version: "1.0"
-generated: "2025-01-13T17:17:51.000359973+05:00"
+generated: "2025-01-15T16:06:26.681638948+05:00"

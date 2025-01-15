@@ -14,4 +14,4 @@ maintainers:
 name: u-store
 sources:
   - https://github.com/unifie-cloud/u-store-app-template
-version: "1.1"
+version: "1.2"

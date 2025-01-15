@@ -31,6 +31,33 @@ spec:
         - name: ustore-configs
           configMap:
             name: ustore-configs
+      initContainers:
+        - name: migrations
+          image: "{{ .Values.store.image }}"
+          volumeMounts:
+            - name: ustore-configs
+              mountPath: /unifie-config-maps
+          resources:
+            requests:
+              memory: 100Mi
+              cpu: 50m 
+          env:
+            {{- range $k, $v := .Values.env }}
+              {{- if $v }}
+            - name: "{{ $k }}"
+              value: "{{ $v }}"
+              {{- end -}}
+            {{- end }}
+            - name: "APP_URL"
+              value: "{{ .Values.store.APP_PROTOCOL}}://{{ .Values.store.APP_DOMAIN}}"
+            - name: "NEXTAUTH_URL"
+              value: "{{ .Values.store.APP_PROTOCOL}}://{{ .Values.store.APP_DOMAIN}}"
+          command: ["npm"]
+          args:
+          - run
+          - prisma
+          - migrate
+          - deploy
       containers:
         - name: back
           image: "{{ .Values.store.image }}"
