@@ -9,58 +9,6 @@ data:
   slack_message.tmpl: {{ .Values.app.slack_message | toYaml | indent 2 }}
 
 ---
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  namespace: "{{ .Release.Namespace }}"
-  name: versus-incident
-  labels:
-    app-type: versus-incident
-    app.kubernetes.io/name: versus-incident
-spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app-type: versus-incident
-      app.kubernetes.io/name: versus-incident
-  template:
-    metadata:
-      labels:
-        app-type: versus-incident
-        app.kubernetes.io/name: versus-incident
-    spec:
-      volumes:
-        - name: app-configs
-          configMap:
-            name: app-configs
-      containers:
-        - name: versus
-          image: "{{ .Values.app.image }}"
-        ports:
-        - containerPort: 3000
-        livenessProbe:
-          httpGet:
-            path: /healthz
-            port: 3000
-        env:
-          {{- range $k, $v := .Values.env }}
-            {{- if $v }}
-          - name: "{{ $k }}"
-            value: "{{ $v }}"
-            {{- end -}}
-          {{- end }} 
-        volumeMounts:
-        - name: versus-config
-          mountPath: /app/config/config.yaml
-          subPath: config.yaml
-        - name: versus-config
-          mountPath: /app/config/slack_message.tmpl
-          subPath: slack_message.tmpl
-      volumes:
-      - name: versus-config
-        configMap:
-          name: versus-config
----
 apiVersion: v1
 kind: Service
 metadata:
@@ -76,5 +24,60 @@ spec:
       port: 3000
       targetPort: 3000
   selector:
-    app.kubernetes.io/name: versus-service
-    app-type: versus-service
+    app.kubernetes.io/name: versus-incident
+    app-type: versus-incident
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: "{{ .Release.Namespace }}"
+  name: "versus-incident"
+  labels:
+    "app-type": "versus-incident"
+    "app.kubernetes.io/name": "versus-incident"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      "app-type": "versus-incident"
+      "app.kubernetes.io/name": "versus-incident"
+  template:
+    metadata:
+      labels:
+        "app-type": "versus-incident"
+        "app.kubernetes.io/name": "versus-incident"
+    spec:
+      volumes:
+        - name: app-configs
+          configMap:
+            name: app-configs
+      containers:
+        - name: versus
+          image: "{{ .Values.app.image }}"
+          ports:
+            - containerPort: 3000
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 3000
+          env:
+            - name: "PORT"
+              value: "3000"
+            {{- range $k, $v := .Values.env }}
+              {{- if $v }}
+            - name: "{{ $k }}"
+              value: "{{ $v }}"
+              {{- end -}}
+            {{- end }} 
+          volumeMounts:
+            - name: versus-config
+              mountPath: /app/config/config.yaml
+              subPath: config.yaml
+            - name: versus-config
+              mountPath: /app/config/slack_message.tmpl
+              subPath: slack_message.tmpl
+      volumes:
+      - name: versus-config
+        configMap:
+          name: versus-config

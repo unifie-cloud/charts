@@ -2,7 +2,7 @@ apiVersion: v1
 entries:
   evershop:
   - apiVersion: v2
-    created: "2025-02-18T15:41:03.653837747+05:00"
+    created: "2025-02-18T16:41:54.585124351+05:00"
     description: NodeJS E-commerce Platform
     digest: 99e8e3f1a343209fb38b387032b76961ef6393029c78039bb2f213d2281b22af
     home: https://github.com/unifie-cloud/charts/tree/main/helm/evershop
@@ -23,7 +23,7 @@ entries:
     version: "1.0"
   u-store:
   - apiVersion: v2
-    created: "2025-02-18T15:41:03.65499716+05:00"
+    created: "2025-02-18T16:41:54.58613331+05:00"
     description: Template for your own SaaS cloud store. Allow to build cloud SaaS
       platform from any software to drive more usage, unlock more revenue and grow
       faster.
@@ -46,7 +46,7 @@ entries:
     - u-store-1.2.tgz
     version: "1.2"
   - apiVersion: v2
-    created: "2025-02-18T15:41:03.654638542+05:00"
+    created: "2025-02-18T16:41:54.585806546+05:00"
     description: Template for your own SaaS cloud store. Allow to build cloud SaaS
       platform from any software to drive more usage, unlock more revenue and grow
       faster.
@@ -69,7 +69,7 @@ entries:
     - u-store-1.1.tgz
     version: "1.1"
   - apiVersion: v2
-    created: "2025-02-18T15:41:03.654249967+05:00"
+    created: "2025-02-18T16:41:54.585473429+05:00"
     description: Template for your own SaaS cloud store. Allow tp build cloud SaaS
       platform from any software to drive more usage, unlock more revenue and grow
       faster.
@@ -93,7 +93,26 @@ entries:
     version: "1.0"
   versus-incident:
   - apiVersion: v2
-    created: "2025-02-18T15:41:03.656423453+05:00"
+    created: "2025-02-18T16:41:54.58955823+05:00"
+    description: An open-source incident management system with multi-channel alerting
+      capabilities.
+    digest: f012222dae862659a0cabfeee48b4ed0da8ed723b5d5681b95d46d367ed6b900
+    home: https://github.com/VersusControl/versus-incident
+    keywords:
+    - incident-management
+    - kubernetes
+    - alerting
+    maintainers:
+    - email: Levhav@yandex.ru
+      name: VictorTrapenok
+    name: versus-incident
+    sources:
+    - https://github.com/VersusControl/versus-incident
+    urls:
+    - versus-incident-1.1.tgz
+    version: "1.1"
+  - apiVersion: v2
+    created: "2025-02-18T16:41:54.587838665+05:00"
     description: An open-source incident management system with multi-channel alerting
       capabilities.
     digest: 5532c680b707e178c26dd3a84065800dc9ba11cc119331937dc51aa8f8c81f95
@@ -111,4 +130,4 @@ entries:
     urls:
     - versus-incident-1.0.tgz
     version: "1.0"
-generated: "2025-02-18T15:41:03.653330158+05:00"
+generated: "2025-02-18T16:41:54.584855851+05:00"
