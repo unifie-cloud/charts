@@ -1,0 +1,14 @@
+apiVersion: v2
+description: An open-source incident management system with multi-channel alerting capabilities.
+home: https://github.com/VersusControl/versus-incident
+keywords:
+  - incident-management
+  - kubernetes
+  - alerting
+maintainers:
+  - email: Levhav@yandex.ru
+    name: VictorTrapenok
+name: versus-incident
+sources:
+  - https://github.com/VersusControl/versus-incident
+version: "1.0"
