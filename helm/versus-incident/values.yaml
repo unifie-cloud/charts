@@ -4,7 +4,7 @@
 
 app:
   image: "ghcr.io/versuscontrol/versus-incident:v1.0.0"
-  slack_message:
+  slack_message: |
     *Critical Error in {{.ServiceName}}*
     ----------
     Error Details:
@@ -13,7 +13,7 @@ app:
     ```
     ----------
     Owner <@{{.UserID}}> please investigate
-  config:
+  config: |
     name: versus
     host: 0.0.0.0
     port: 3000
@@ -28,21 +28,21 @@ app:
       telegram:
         enable: false
 
-env: 
-  DEBUG_BODY: "false" #  Set to `true` to enable print body send to Versus Incident. 
+env:
+  DEBUG_BODY: "false" #  Set to `true` to enable print body send to Versus Incident.
   SLACK_ENABLE: "" #  Set to `true` to enable Slack notifications.
   SLACK_TOKEN: "" #  The authentication token for your Slack bot.
-  SLACK_CHANNEL_ID: "" #  The ID of the Slack channel where alerts will be sent. 
+  SLACK_CHANNEL_ID: "" #  The ID of the Slack channel where alerts will be sent.
   TELEGRAM_ENABLE: "" #  Set to `true` to enable Telegram notifications.
   TELEGRAM_BOT_TOKEN: "" #  The authentication token for your Telegram bot.
-  TELEGRAM_CHAT_ID: "" #  The chat ID where alerts will be sent. 
+  TELEGRAM_CHAT_ID: "" #  The chat ID where alerts will be sent.
   EMAIL_ENABLE: "" #  Set to `true` to enable email notifications.
   SMTP_HOST: "" #  The SMTP server hostname (e.g., smtp.gmail.com).
   SMTP_PORT: "" #  The SMTP server port (e.g., 587 for TLS).
   SMTP_USERNAME: "" #  The username/email for SMTP authentication.
   SMTP_PASSWORD: "" #  The password or app-specific password for SMTP authentication.
   EMAIL_TO: "" #  The recipient email address for incident notifications.
-  EMAIL_SUBJECT: "" #  The subject line for email notifications. 
+  EMAIL_SUBJECT: "" #  The subject line for email notifications.
   SNS_ENABLE: "" #  Set to `true` to enable receive Alert Messages from SNS.
-  SNS_HTTPS_ENDPOINT_SUBSCRIPTION: "" #  This specifies the HTTPS endpoint to which SNS sends messages. When an HTTPS endpoint is configured, an SNS subscription is automatically created. If no endpoint is configured, you must create the SNS subscription manually using the CLI or AWS Console. E.g. `https://your-domain.com: "" # 
+  SNS_HTTPS_ENDPOINT_SUBSCRIPTION: "" #  This specifies the HTTPS endpoint to which SNS sends messages. When an HTTPS endpoint is configured, an SNS subscription is automatically created. If no endpoint is configured, you must create the SNS subscription manually using the CLI or AWS Console. E.g. `https://your-domain.com: "" #
   SNS_TOPIC_ARN: "" #  AWS ARN of the SNS topic to subscribe to

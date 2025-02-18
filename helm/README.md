@@ -4,6 +4,7 @@
 
 - [U-store helm chart](/charts/helm/u-store/)
 - [EverShop helm chart](/charts/helm/evershop/)
+- [Versus-incident helm chart](/charts/helm/versus-incident/)
 
 ## Source code
 

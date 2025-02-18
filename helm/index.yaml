@@ -2,9 +2,9 @@ apiVersion: v1
 entries:
   evershop:
   - apiVersion: v2
-    created: "2025-01-15T16:06:26.681922945+05:00"
+    created: "2025-02-18T15:41:03.653837747+05:00"
     description: NodeJS E-commerce Platform
-    digest: 45698c07931f9045d48d810b5cf7666795c7ad399a627ba448f89ad27fdef66a
+    digest: 99e8e3f1a343209fb38b387032b76961ef6393029c78039bb2f213d2281b22af
     home: https://github.com/unifie-cloud/charts/tree/main/helm/evershop
     icon: https://avatars.githubusercontent.com/u/83757778?s=48&v=4
     keywords:
@@ -23,11 +23,11 @@ entries:
     version: "1.0"
   u-store:
   - apiVersion: v2
-    created: "2025-01-15T16:06:26.683018924+05:00"
+    created: "2025-02-18T15:41:03.65499716+05:00"
     description: Template for your own SaaS cloud store. Allow to build cloud SaaS
       platform from any software to drive more usage, unlock more revenue and grow
       faster.
-    digest: 0da9f5fd2c6f4dcd726f7952a9916fb11e2fa0599703b0f4c17f333e04cec8ab
+    digest: 62b93bab1fe07d67c44e6fa9091a7d717bfd2afb95f602df1c656e600238cb6d
     home: https://github.com/unifie-cloud/u-store
     keywords:
     - ecommerce
@@ -46,7 +46,7 @@ entries:
     - u-store-1.2.tgz
     version: "1.2"
   - apiVersion: v2
-    created: "2025-01-15T16:06:26.682686252+05:00"
+    created: "2025-02-18T15:41:03.654638542+05:00"
     description: Template for your own SaaS cloud store. Allow to build cloud SaaS
       platform from any software to drive more usage, unlock more revenue and grow
       faster.
@@ -69,7 +69,7 @@ entries:
     - u-store-1.1.tgz
     version: "1.1"
   - apiVersion: v2
-    created: "2025-01-15T16:06:26.682327813+05:00"
+    created: "2025-02-18T15:41:03.654249967+05:00"
     description: Template for your own SaaS cloud store. Allow tp build cloud SaaS
       platform from any software to drive more usage, unlock more revenue and grow
       faster.
@@ -91,4 +91,24 @@ entries:
     urls:
     - u-store-1.0.tgz
     version: "1.0"
-generated: "2025-01-15T16:06:26.681638948+05:00"
+  versus-incident:
+  - apiVersion: v2
+    created: "2025-02-18T15:41:03.656423453+05:00"
+    description: An open-source incident management system with multi-channel alerting
+      capabilities.
+    digest: 5532c680b707e178c26dd3a84065800dc9ba11cc119331937dc51aa8f8c81f95
+    home: https://github.com/VersusControl/versus-incident
+    keywords:
+    - incident-management
+    - kubernetes
+    - alerting
+    maintainers:
+    - email: Levhav@yandex.ru
+      name: VictorTrapenok
+    name: versus-incident
+    sources:
+    - https://github.com/VersusControl/versus-incident
+    urls:
+    - versus-incident-1.0.tgz
+    version: "1.0"
+generated: "2025-02-18T15:41:03.653330158+05:00"
