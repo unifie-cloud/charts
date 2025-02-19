@@ -111,3 +111,9 @@ Versus Incident Management System
 ```
 
 This template supports both plain text and HTML formatting for email notifications.
+
+# One click deploy
+
+You can use unifie.cloud to deploy this project to your cluster:
+
+[![deploy with unifie](https://api.unifie.cloud/deploy-btn/button_unifie-one-click-deploy.gif)](https://unifie.cloud/kubernetes/unifie-project-ba4cg56a7f2ya7c8)
