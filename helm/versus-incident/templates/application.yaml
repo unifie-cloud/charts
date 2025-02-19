@@ -4,9 +4,10 @@ kind: ConfigMap
 metadata:
   namespace: "{{ .Release.Namespace }}"
   name: versus-config
-data:
-  config.yaml: {{ .Values.app.config | toYaml | indent 2 }}
-  slack_message.tmpl: {{ .Values.app.slack_message | toYaml | indent 2 }}
+binaryData:
+  config.yaml: {{ .Values.app.config | b64enc }}
+  email_message.tmpl: {{ .Values.app.email_message | b64enc }}
+  slack_message.tmpl: {{ .Values.app.slack_message | b64enc }}
 
 ---
 apiVersion: v1
@@ -37,7 +38,7 @@ metadata:
     "app-type": "versus-incident"
     "app.kubernetes.io/name": "versus-incident"
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       "app-type": "versus-incident"
@@ -64,6 +65,8 @@ spec:
           env:
             - name: "PORT"
               value: "3000"
+            - name: "EMAIL_TEMPLATE_PATH"
+              value: "config/email_message.tmpl"
             {{- range $k, $v := .Values.env }}
               {{- if $v }}
             - name: "{{ $k }}"
@@ -77,6 +80,9 @@ spec:
             - name: versus-config
               mountPath: /app/config/slack_message.tmpl
               subPath: slack_message.tmpl
+            - name: versus-config
+              mountPath: /app/config/email_message.tmpl
+              subPath: email_message.tmpl
       volumes:
       - name: versus-config
         configMap:
